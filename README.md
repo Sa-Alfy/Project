@@ -7,6 +7,7 @@ This is the collection of all the projects I have worked on and am still working
 - [Projects](#projects)
   - [Flask](#flask)
   - [Scraper](#scraper)
+  - [ChatBot](#chatbot)
 - [Languages Used](#languages-used)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -30,6 +31,16 @@ You can find the Flask project [here](https://github.com/Sa-Alfy/Project/tree/ma
 The Scraper project includes a web scraping tool developed in Python. It helps in extracting data from websites and storing them for further analysis.
 
 You can find the Scraper project [here](https://github.com/Sa-Alfy/Project/tree/main/Scraper).
+
+### ChatBot
+The ChatBot project is a chatbot application which includes various modules and a graphical user interface. It contains the following directories:
+- `ChatBot`: Main directory for the chatbot application.
+- `gui_images`: Contains images used in the GUI.
+- `gui`: Contains GUI-related files.
+- `bot`: Contains bot-related files.
+- `Messenger`: Contains messenger integration files.
+
+You can find the ChatBot project [here](https://github.com/Sa-Alfy/ChatBot__/tree/main/ChatBot__-main).
 
 ## Languages Used
 - **Python**: 42.6%
