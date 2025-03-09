@@ -15,7 +15,7 @@ A Flask-based web application that provides prayer times and weather information
 
 1. Clone the repository
 ```bash
-git clone <your-repository-url>
+git clone <(https://github.com/Sa-Alfy/Project.git)>
 cd Flask
 ```
 
