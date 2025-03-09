@@ -1,53 +1,79 @@
-# Project
+# Prayer Times & Weather App
 
-This is the collection of all the projects I have worked on and am still working on.
+![Prayer Times & Weather App](path/to/screenshot.png)
 
-## Table of Contents
-- [Description](#description)
-- [Projects](#projects)
-  - [Flask](#flask)
-  - [Scraper](#scraper)
-  - [ChatBot](#chatbot)
-- [Languages Used](#languages-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+A Flask-based web application that provides Islamic prayer times and real-time weather information, optimized for both desktop and mobile devices.
 
-## Description
-This repository is a collection of all the projects I have worked on and am still working on. It showcases various applications and programs developed using different technologies.
+## Features
 
-## Projects
+- **Islamic Prayer Times**: Get prayer times for any city worldwide.
+- **Ramadan Timings**: Display Sehri and Iftar times during Ramadan.
+- **Real-time Weather Information**: Fetch current weather details for any location.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Live Analog and Digital Clock**: Display current time in both formats.
+- **Dark Theme Interface**: User-friendly dark mode for better visibility.
 
-### Flask
-The Flask project includes a web application built using the Flask framework. It contains the following directories:
-- `static`: Contains static files such as CSS, JavaScript, and images.
-- `templates`: Contains HTML templates for the web application.
+## Setup
 
-You can find the Flask project [here](https://github.com/Sa-Alfy/Project/tree/main/Flask).
+Follow these steps to set up and run the application:
 
-### Scraper
-The Scraper project includes a web scraping tool developed in Python. It helps in extracting data from websites and storing them for further analysis.
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/Sa-Alfy/Project.git
+    cd Flask
+    ```
 
-You can find the Scraper project [here](https://github.com/Sa-Alfy/Project/tree/main/Scraper).
+2. **Create a virtual environment:**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    ```
 
-### ChatBot
-The ChatBot project is a chatbot application which includes various modules and a graphical user interface. It contains the following directories:
-- `ChatBot`: Main directory for the chatbot application.
-- `gui_images`: Contains images used in the GUI.
-- `gui`: Contains GUI-related files.
-- `bot`: Contains bot-related files.
-- `Messenger`: Contains messenger integration files.
+3. **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-You can find the ChatBot project [here](https://github.com/Sa-Alfy/ChatBot__/tree/main/ChatBot__-main).
+4. **Create a `.env` file with your credentials:**
+    ```
+    FLASK_SECRET_KEY=your-secret-key
+    OPENWEATHERMAP_API_KEY=your-api-key
+    ```
 
-## Languages Used
-- **Python**: 42.6%
-- **CSS**: 30%
-- **HTML**: 27.4%
+5. **Run the application:**
+    ```bash
+    python Main.py
+    ```
 
-## Installation
-To install the projects, clone the repository using the following command:
-```sh
+## Access on Mobile
+
+1. Ensure your phone is connected to the same WiFi network as your computer.
+2. Find your computer's local IP address (printed when running the app).
+3. On your phone's browser, enter: `http://<your-computer-ip>:5000`.
+
+## Default Login
+
+- **Username**: Admin
+- **Password**: 102030
+
+
+## Developer
+
+- **Name**: Shariar Ahamed
+- **Email**: [saaulfy@gmail.com](mailto:saaulfy@gmail.com)
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
+
+## Acknowledgements
+
+- [Aladhan API](https://aladhan.com/prayer-times-api) for providing prayer times.
+- [OpenWeatherMap API](https://openweathermap.org/api) for weather information.
+- [Font Awesome](https://fontawesome.com) for icons.
+
 git clone https://github.com/Sa-Alfy/Project.git
