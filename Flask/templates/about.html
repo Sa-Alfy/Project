@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About - Prayer Time</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div id="branding">
+                <h1>About Us</h1>
+            </div>
+            <nav class="logout-nav">
+                <a href="{{ url_for('home') }}" class="nav-btn">Home</a>
+                <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="about-card">
+            <h2><i class="fas fa-user"></i> Developer Information</h2>
+            <div class="about-content">
+                <p><i class="fas fa-user-circle"></i> <strong>Name : </strong> Shariar Ahamed</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email : </strong> www.saaulfy@gmail.com</p>
+                <p><i class="fas fa-info-circle"></i> <strong>About : </strong>Making prayer times and weather information easily accessible.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Prayer Time</title>
+    <!-- Stylesheet imports -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header>
+        <div class="container header-container">
+            <div id="branding">
+                <h1>Seheri & Iftar Time</h1>
+            </div>
+            <nav class="logout-nav">
+                <a href="{{ url_for('about') }}" class="nav-btn">About</a>
+                <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Hello, Shariar!</h1>
+
+        <!-- Search Form Section -->
+        <form method="post" class="search-form">
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" name="city" id="city" required 
+                    placeholder="e.g., London">
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" name="country" id="country" required 
+                    placeholder="e.g., UK">
+            </div>
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Analog Clock Widget -->
+        <div class="clock-container">
+            <div class="clock">
+                <div class="clock-face">
+                    <div class="hand hour-hand"></div>
+                    <div class="hand minute-hand"></div>
+                    <div class="hand second-hand"></div>
+                    <div class="clock-center"></div>
+                    <div class="digital-time"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prayer Times and Weather Results -->
+        {% if prayer_times %}
+            <h1 class="location-header">{{ city }}, {{ country }}</h1>
+            <div class="results-container">
+                <div class="result-card">
+                    <h2>Regular Prayer Times</h2>
+                    {% for prayer, time in prayer_times.items() %}
+                    <div class="time-display">
+                        <span class="time-label">{{ prayer }}</span>
+                        <span class="time-value">{{ time }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="result-card">
+                    <h2>Ramadan Timings</h2>
+                    {% for prayer, time in ramadan_times.items() %}
+                    <div class="time-display">
+                        <span class="time-label">{{ prayer }}</span>
+                        <span class="time-value">{{ time }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                {% if weather %}
+                <div class="result-card">
+                    <h2>Weather Information</h2>
+                    <div class="weather-info">
+                        <div class="weather-item">
+                            <span class="weather-label">
+                                <i class="fas fa-temperature-high"></i> Temperature
+                            </span>
+                            <span class="weather-value">{{ weather['temperature'] }}°C</span>
+                        </div>
+                        <div class="weather-item">
+                            <span class="weather-label">
+                                <i class="fas fa-tint"></i> Humidity
+                            </span>
+                            <span class="weather-value">{{ weather['humidity'] }}%</span>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Clock Update Script -->
+    <script>
+        // Clock update function
+        function updateClock() {
+            // Get current time
+            const now = new Date();
+            
+            // Update analog clock hands
+            const seconds = now.getSeconds();
+            const secondsDegrees = ((seconds / 60) * 360);
+            document.querySelector('.second-hand').style.transform = 
+                `rotate(${secondsDegrees}deg)`;
+
+            const minutes = now.getMinutes();
+            const minutesDegrees = ((minutes / 60) * 360) + ((seconds/60)*6);
+            document.querySelector('.minute-hand').style.transform = 
+                `rotate(${minutesDegrees}deg)`;
+
+            const hours = now.getHours();
+            const hoursDegrees = ((hours % 12) / 12 * 360) + ((minutes/60)*30);
+            document.querySelector('.hour-hand').style.transform = 
+                `rotate(${hoursDegrees}deg)`;
+
+            // Update digital time display
+            const timeString = now.toLocaleTimeString('en-US', { 
+                hour: 'numeric', 
+                minute: '2-digit',
+                hour12: true 
+            });
+            document.querySelector('.digital-time').textContent = timeString;
+        }
+
+        // Start clock updates
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Add touch event handling
+        document.addEventListener('DOMContentLoaded', function() {
+            if ('ontouchstart' in window) {
+                document.querySelectorAll('.result-card').forEach(card => {
+                    card.addEventListener('touchstart', () => card.style.transform = 'translateY(-5px)');
+                    card.addEventListener('touchend', () => card.style.transform = 'none');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
